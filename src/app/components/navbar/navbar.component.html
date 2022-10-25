@@ -1,0 +1,48 @@
+<nav  class="navbar navbar-expand-md navbar-dark bg-dark border-3 border-bottom border-primary">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">LIBRERIA</a>
+        <button  type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            .<span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="menu" class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link"  [routerLink]="['/home']" [routerLinkActive]="'active'" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/users']" [routerLinkActive]="'active'" >Users</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Link
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <!-- <div class="row">
+                    <div class="col-9 col-md-12">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" (keyup)="addNewItem(newItem.value)" placeholder="Search"
+                                aria-label="Search" #newItem>
+                            <input class="btn btn-outline-primary" type="submit" (click)="addNewItem(newItem.value)" value="Buscar"/>
+                        </form>
+                    </div>
+  
+                </div> -->
+  
+            </div>
+        </div>
+    </div>
+  </nav>
+  

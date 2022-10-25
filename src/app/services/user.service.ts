@@ -1,4 +1,4 @@
-import { golbal } from './GLOBAL';
+import { global } from './GLOBAL';
 import { Injectable } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ export class UserService {
   public token: any;
 
   constructor(private _http: HttpClient) {
-      this.url = golbal.url;
+      this.url = global.url;
    }
 
    Login(user:any, gethash:any=null): Observable<any>{

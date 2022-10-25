@@ -1,1 +1,37 @@
-<p>home works!</p>
+
+
+<app-navbar></app-navbar>
+<div class="container"> 
+  <div class="row mt-3 ms-1">
+    <button type="button" class="btn btn-primary col-1" [routerLink]="['/agg-producto']">+</button>
+  </div>
+  <table class="table table-striped mt-5">
+    <thead>
+      <tr class="bg-primary text-light">
+          <th>nombre</th>
+          <th>cantidad</th>
+          <th>Precio</th>
+          <th>vencimiento</th>
+          <th>acciones</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let producto of productos">
+        <td>
+          <img *ngIf="producto.image" [src]="url+'getImage/'+producto.image" width="48" height="48" class="rounded-circle mr-2" alt="image"/>
+          <img *ngIf="!producto.image" [src]="url+'getImage/'+'default.png'" width="48" height="48" class="rounded-circle mr-2" alt="image"/>
+
+          {{producto.nombre}}</td>
+        <td>{{producto.cantidad}}</td>
+        <td>${{producto.precio}}</td>
+        <td>{{producto.vencimiento}}</td>
+        <td><div class="d-flex">
+          <button class="btn btn-warning">Editar</button>
+          <button class="btn btn-danger ms-2" (click)="deleteProducto(producto._id)">Eliminar</button>
+        </div>
+      </td>
+      </tr>
+    </tbody>  
+
+  </table>
+</div>
