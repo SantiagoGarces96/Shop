@@ -26,7 +26,7 @@
         <td>${{producto.precio}}</td>
         <td>{{producto.vencimiento}}</td>
         <td><div class="d-flex">
-          <button class="btn btn-warning">Editar</button>
+          <button class="btn btn-warning" [routerLink]="['/edit-producto', producto._id]">Editar</button>
           <button class="btn btn-danger ms-2" (click)="deleteProducto(producto._id)">Eliminar</button>
         </div>
       </td>

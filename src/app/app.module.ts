@@ -9,6 +9,7 @@ import {HttpClientModule} from  '@angular/common/http'
 import { UserService } from './services/user.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreateProductoComponent } from './components/create-producto/create-producto.component';
+import { EditProductoComponent } from './components/edit-producto/edit-producto.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CreateProductoComponent } from './components/create-producto/create-pro
     HomeComponent,
     NavbarComponent,
     CreateProductoComponent,
+    EditProductoComponent,
   
   ],
   imports: [

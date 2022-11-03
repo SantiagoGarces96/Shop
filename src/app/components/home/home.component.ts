@@ -9,7 +9,7 @@ import { global } from 'src/app/services/GLOBAL';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styles: [
-  ]
+]
 })
 export class HomeComponent implements OnInit {
   public identity: any;
