@@ -44,12 +44,14 @@ export class HomeComponent implements OnInit {
   });
 }
 
-deleteProducto(id: string) {
+deleteProducto(id: string): void {
+  if (confirm("¿Estas seguro?")){
   this._productosService.deleteProducto(id).subscribe(
     res=> {
       console.log (res);
       this.getProductos();
     });
   }
+}
 
 }

@@ -3,7 +3,7 @@
 <app-navbar></app-navbar>
 <div class="container"> 
   <div class="row mt-3 ms-1">
-    <button type="button" class="btn btn-primary col-1" [routerLink]="['/agg-producto']">+</button>
+    <button type="button" class="btn btn-primary col-2" [routerLink]="['/agg-producto']">Agregar Producto</button>
   </div>
   <table class="table table-striped mt-5">
     <thead>
@@ -12,6 +12,7 @@
           <th>cantidad</th>
           <th>Precio</th>
           <th>vencimiento</th>
+          <th>Categoria</th>
           <th>acciones</th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
         <td>{{producto.cantidad}}</td>
         <td>${{producto.precio}}</td>
         <td>{{producto.vencimiento}}</td>
+        <td>{{producto.IdCat.name}}</td>
         <td><div class="d-flex">
           <button class="btn btn-warning" [routerLink]="['/edit-producto', producto._id]">Editar</button>
           <button class="btn btn-danger ms-2" (click)="deleteProducto(producto._id)">Eliminar</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { global } from 'src/app/services/GLOBAL';
+import {ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -13,15 +14,19 @@ export class EditProductoComponent implements OnInit {
   public imgSelect: any;
   public url;
   public producto = {
-    IdCat: "",
+    IdCat: {_id:"", name:""},
     nombre: "",
     vencimiento: "",
     cantidad: 0,
-    precio: 0
+    precio: 0,
+    image: "default.png"
   };
   public categorias: any;
+  public id: any;
   constructor(
-    private _productosService: ProductosService) {
+    private route: ActivatedRoute,
+    private _productosService: ProductosService,
+    private Router: Router) {
     this.url = global.url;
   }
 
@@ -29,7 +34,18 @@ export class EditProductoComponent implements OnInit {
     this._productosService.getCategorias().subscribe(
       res=>{
         console.log(res);
-      this.categorias = res.categorias
+        this.categorias = res.categorias;
+      }
+    );
+    this.route.params.subscribe(
+      params=>{
+        this.id = params['id'];
+        this._productosService.getProducto(this.id).subscribe(
+          res=>{
+          console.log(res);
+          this.producto= res.producto;
+          }
+        )
     }
     );
   }
@@ -37,7 +53,7 @@ export class EditProductoComponent implements OnInit {
   onSubmit(form:any):void {
     if (form.valid){
     console.log(form.value);
-      this._productosService.insertarProducto({
+      this._productosService.EditarProducto(this.id, {
         nombre: form.value.nombre,
         precio: form.value.precio,
         cantidad: form.value.cantidad,
@@ -47,6 +63,7 @@ export class EditProductoComponent implements OnInit {
       }).subscribe(
         res=>{
           console.log(res);
+          window.history.back();
         }
       )
     }
@@ -64,5 +81,9 @@ export class EditProductoComponent implements OnInit {
 
     }
   }
+
+volver(): void {
+  window.history.back();
+}
 
 }

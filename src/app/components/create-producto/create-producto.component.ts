@@ -51,6 +51,7 @@ export class CreateProductoComponent implements OnInit {
       }).subscribe(
         res=>{
           console.log(res);
+          window.history.back();
         }
       )
     }
@@ -68,6 +69,10 @@ export class CreateProductoComponent implements OnInit {
 
     }
   }
+
+volver(): void {
+  window.history.back();
+}
 
 
 }
